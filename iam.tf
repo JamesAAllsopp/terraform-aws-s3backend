@@ -6,7 +6,7 @@ locals {
 }
 
 resource "aws_iam_role" "iam_role" {
-  name = "$local.namespace}=tf-assume-role"
+  name = "${local.namespace}-tf-assume-role"
 
   assume_role_policy = <<-EOF
      {
@@ -45,7 +45,7 @@ data "aws_iam_policy_document" "policy_doc" {
       "dynamodb:PutItem",
       "dynamodb:DeleteItem"
     ]
-    resource =  [aws_dynamodb_table.dynamodb_table.arn]
+    resources =  [aws_dynamodb_table.dynamodb_table.arn]
   }
 }
 
