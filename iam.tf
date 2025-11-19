@@ -1,7 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 locals {
-  principal_arns = var.principal_arns != null ? var.principal_arns :[data.aws_caller_identity.current_arn] # If no
+  principal_arns = var.principal_arns != null ? var.principal_arns :[data.aws_caller_identity.current.arn] # If no
   # principal ARNs are specified, uses the current account
 }
 
